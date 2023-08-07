@@ -5,8 +5,11 @@ import {useEffect ,useState} from 'react';
 
 const AvailableMeals = () => {
   const [meals , setMeals] =useState([]);
+  const [isloading , setisloading] = useState(true);
+
   useEffect( () =>{
     const fetchMeals = async () =>{
+    
      const response =  await fetch('https://food-order-f6f90-default-rtdb.firebaseio.com/Meals.json');
     const responseData = await response.json();
     const loadedMeals =[];
@@ -19,13 +22,22 @@ const AvailableMeals = () => {
       })
     }
     setMeals(loadedMeals);
+    setisloading(false);
     };
     fetchMeals();
-    },[ ])
+    },[ ]);
+
+
     //we have to add .json specifcially for use real time database in firebase.
   //fetch return a promise because sending http request is asynchronous task 
   //effect function is syncronous we have to use async inside the function 
-    const mealsList = meals.map((meal) => (
+  if(isloading)  {
+    return <section className={classes.MealsLoading}>
+      <p>Loading ...</p>
+    </section>
+  }
+  
+  const mealsList = meals.map((meal) => (
     <MealItem
      id={meal.id}
       key={meal.id}
