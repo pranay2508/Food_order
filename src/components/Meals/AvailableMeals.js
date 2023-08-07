@@ -6,11 +6,18 @@ import {useEffect ,useState} from 'react';
 const AvailableMeals = () => {
   const [meals , setMeals] =useState([]);
   const [isloading , setisloading] = useState(true);
+  const[httpError , setHttpError] = useState() ; 
+
+
 
   useEffect( () =>{
     const fetchMeals = async () =>{
     
      const response =  await fetch('https://food-order-f6f90-default-rtdb.firebaseio.com/Meals.json');
+
+     if(!response.ok){
+      throw new Error('Something went wrong');
+     }
     const responseData = await response.json();
     const loadedMeals =[];
     for (const key in responseData){
@@ -24,9 +31,13 @@ const AvailableMeals = () => {
     setMeals(loadedMeals);
     setisloading(false);
     };
-    fetchMeals();
-    },[ ]);
-
+    //when we use try and catch inside a promise the error will be rejected 
+    // for that we can use the .catch function so it will work fine.
+    fetchMeals().catch((error)=>{
+      setisloading(false);
+      setHttpError(error.message);
+    });
+  },[] );
 
     //we have to add .json specifcially for use real time database in firebase.
   //fetch return a promise because sending http request is asynchronous task 
@@ -34,6 +45,11 @@ const AvailableMeals = () => {
   if(isloading)  {
     return <section className={classes.MealsLoading}>
       <p>Loading ...</p>
+    </section>
+  }
+  if(httpError){
+    return  <section className={classes.MealsError}>
+      <p>{httpError}</p>
     </section>
   }
   
