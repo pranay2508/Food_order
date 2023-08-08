@@ -29,7 +29,7 @@ const Cart = (props) => {
 
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
-    await fetch("https://react-http-6b4a6.firebaseio.com/orders.json", {
+    const pranay = await fetch("https://food-order-f6f90-default-rtdb.firebaseio.com/orders.json", {
       method: "POST",
       body: JSON.stringify({
         user: userData,
@@ -37,6 +37,7 @@ const Cart = (props) => {
       }),
     });
     setIsSubmitting(false);
+    console.log(pranay);
     setDidSubmit(true);
     cartCtx.clearCart();
   };
