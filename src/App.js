@@ -29,3 +29,5 @@ const hideCartHandler = () => {
 }
 
 export default App;
+
+// this project has completed
