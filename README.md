@@ -57,7 +57,7 @@ npm install -g create-react-app
 ```
 ## Live Application URL
 
-The Application is deployed in https://aditya-sridhar.github.io/simple-reactjs-app
+The Application is deployed in https://food-order-tawny-nine.vercel.app/
 
 Click on the link to see the application
 
