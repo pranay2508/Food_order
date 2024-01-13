@@ -43,3 +43,46 @@ d. Real-time Updates: Firebase enables real-time data synchronization, ensuring 
 e. Responsive Design: The website is designed to be accessible and visually appealing across various devices, including desktops, tablets, and smartphones.
 
 ![Screenshot (115)](https://github.com/pranay2508/Food_order/assets/56022492/4f27c697-cedf-4878-aa7d-1e4e914c8097)
+
+## Prerequisites
+
+### Install Node JS
+Refer to https://nodejs.org/en/ to install nodejs
+
+### Install create-react-app
+Install create-react-app npm package globally. This will help to easily run the project and also build the source files easily. Use the following command to install create-react-app
+
+```bash
+npm install -g create-react-app
+```
+## Live Application URL
+
+The Application is deployed in https://aditya-sridhar.github.io/simple-reactjs-app
+
+Click on the link to see the application
+
+## Cloning and Running the Application in local
+
+Clone the project into local
+
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
+
+```bash
+npm install
+```
+
+In order to run the application Type the following command
+
+```bash
+npm start
+```
+
+The Application Runs on **localhost:3000**
+
+## Resources
+
+**create-react-app** : The following link has all the commands that can be used with create-react-app
+https://github.com/facebook/create-react-app
+
+**ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS
+
